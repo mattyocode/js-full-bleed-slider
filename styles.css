@@ -6,12 +6,12 @@
 
 body, html {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .carousel-container {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .carousel-slide {
@@ -19,6 +19,7 @@ body, html {
     display: flex;
     height: 100%;
     width: 500%;
+    /* justify-content: center; */
 }
 
 .full-bleed {
@@ -27,6 +28,7 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
     filter: brightness(60%);
+
 }
 
 #parkbench-img {
@@ -61,18 +63,19 @@ body, html {
     padding: 2rem;
     height: 6rem;
     width: 6rem;
-    cursor: pointer;
 }
 
 #prev {
     float: left;
+    cursor: pointer;
 }
 
 #next {
     float: right;
+    cursor: pointer;
 }
 
 .hide {
     opacity: 0;
-    cursor:unset;
+    cursor: default !important;
 }

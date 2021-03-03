@@ -9,48 +9,60 @@ function responsiveCarousel(){
 
     // Counter
     let counter = 0;
-    const size = carouselContent[0].clientWidth;
-    console.log(counter);
+    let width = carouselContent[0].clientWidth;
 
-    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    window.addEventListener('resize', () => {
+        width = carouselContent[counter].clientWidth;
+        // carouselContent.forEach((item)=>{
+        //     item.style.width = width;
+        // })
+        carouselSlide.style.transform = 'translateX(' + (-width * counter) + 'px)';
+    });
+
+
+
+    carouselSlide.style.transform = 'translateX(' + (-width * counter) + 'px)';
 
     // Button listeners
 
     function counterInRange(){
-        return (counter <= 0 || counter >= carouselContent.length);
+        return (counter <= 0 || counter >= carouselContent.length - 1);
     };
 
     function checkBtnDisplay(){
-        if(counterInRange()) {
+        if(counter <= 0){
             prevBtn.classList.add('hide');
+            nextBtn.classList.remove('hide');
+        } else if(counter >= carouselContent.length - 1){
+            prevBtn.classList.remove('hide');
+            nextBtn.classList.add('hide');
         } else {
+            nextBtn.classList.remove('hide');
             prevBtn.classList.remove('hide');
         };
-    };
+    };        
+  
 
     nextBtn.addEventListener('click', () => {
+        if(counter >= carouselContent.length - 1) return;
         carouselSlide.style.transition = 'transform 0.4s ease-in-out';
         counter++;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-        checkBtnDisplay();
+        carouselSlide.style.transform = 'translateX(' + (-width * counter) + 'px)';
     });
 
     prevBtn.addEventListener('click', () => {
-        if(counter <= 0) {
-            return;
-        } else {
+        if(counter <= 0) return;
         carouselSlide.style.transition = 'transform 0.4s ease-in-out';
         counter--;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-        checkBtnDisplay();
-    }});
+        carouselSlide.style.transform = 'translateX(' + (-width * counter) + 'px)';
+    });
 
     window.addEventListener('DOMContentLoaded', () => {
         checkBtnDisplay();
     });
 
     carouselSlide.addEventListener('transitionend', () => {
-        console.log('fired')
+        checkBtnDisplay();
     });
 };
 
