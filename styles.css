@@ -1,0 +1,78 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-container {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-slide {
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+    width: 500%;
+}
+
+.full-bleed {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(60%);
+}
+
+#parkbench-img {
+    background-image: url("./imgs/parkbench.jpg");
+}
+
+#six-or-more-img {
+    background-image: url("./imgs/six-or-more.jpg");
+}
+
+#gym-img {
+    background-image: url("./imgs/gym.jpg");
+}
+
+#indoor-bar-img {
+    background-image: url("./imgs/indoor-bar.jpg");
+}
+
+#festival-img {
+    background-image: url("./imgs/festival.jpg");
+}
+
+.controls {
+    color: black;
+    position: absolute;
+    top: 50%;
+    width: 100vw;
+}
+
+#prev,
+#next {
+    padding: 2rem;
+    height: 6rem;
+    width: 6rem;
+    cursor: pointer;
+}
+
+#prev {
+    float: left;
+}
+
+#next {
+    float: right;
+}
+
+.hide {
+    opacity: 0;
+    cursor:unset;
+}
